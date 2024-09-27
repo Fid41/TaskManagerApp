@@ -4,12 +4,18 @@ const dotenv = require('dotenv');
 const taskRoutes = require('./routes/TaskRoutes'); // Importing the task routes
 const connectDB = require('./config/db'); // MongoDB config
 const logger = require('./middleware/logger'); // Custom logger middleware
+const usersRoute = require('./routes/users'); // Update to match the correct path
+const cors = require('cors'); // Import the cors middleware
+const authRoutes = require('./routes/auth'); // Adjust the path as necessary
 
 // Initialize dotenv to use environment variables
 dotenv.config();
 
 // Initialize the Express app
 const app = express();
+
+// Enable CORS for all requests
+app.use(cors());
 
 // Middleware to parse incoming requests with JSON payloads
 app.use(express.json());
@@ -24,6 +30,8 @@ connectDB();
 
 // Use task routes
 app.use('/api/tasks', taskRoutes);
+app.use('/api/users', usersRoute); // Register the route
+app.use('/api/auth', authRoutes); // Authentication routes
 
 
 

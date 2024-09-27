@@ -9,16 +9,21 @@ const Home = () => {
         <p className="text-white text-lg mb-8">
           Organize your tasks and boost productivity.
         </p>
-        <Link to="/login">
-          <button className="bg-white text-blue-600 px-4 py-2 rounded-lg shadow-md hover:bg-gray-100 transition">
-            Get Started
-          </button>
-        </Link>
+        <div className="flex flex-col space-y-2"> {/* Flex column with space between */}
+          <Link to="/login">
+            <button className="bg-white text-blue-600 px-4 py-2 rounded-lg shadow-md hover:bg-gray-100 transition">
+              Get Started
+            </button>
+          </Link>
+          <Link to="/register">
+            <button className="bg-white text-blue-600 px-4 py-2 rounded-lg shadow-md hover:bg-gray-100 transition">
+              Register
+            </button>
+          </Link>
+        </div>
       </div>
     </div>
   );
 };
 
 export default Home;
-
-
